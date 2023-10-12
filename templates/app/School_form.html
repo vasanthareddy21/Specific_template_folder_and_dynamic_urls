@@ -1,0 +1,16 @@
+{% extends 'app/dummy.html'%}
+
+{% block title %}
+<title>Home Page</title>
+{% endblock %}
+
+{% block body_block %}
+<center>
+<h1>Insertion of Data </h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Create">
+</form>
+</center>
+{% endblock %}
