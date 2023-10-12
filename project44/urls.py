@@ -1,5 +1,6 @@
+
 """
-URL configuration for project44 project.
+URL configuration for project37 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -17,14 +18,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,re_path
 from app.views import *
-
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('Home/',Home.as_view(),name='Home'),
     path('SchoolList/',SchoolList.as_view(),name='SchoolList'),
-    path('home/',home.as_view(),name='home'),
-    path('SchoolCreate',SchoolCreate.as_view(),name='SchoolCreate'),
+    path('SchoolCreate/',SchoolCreate.as_view(),name='SchoolCreate'),
 
-    re_path("(?P<pk>\d+)",SchoolDetail.as_view(),name='detail')
 
-    
+    re_path('^update/(?P<pk>\d+)/',SchoolUpdate.as_view(),name='update'),
+    re_path('^delete/(?P<pk>\d+)/',SchoolDelete.as_view(),name='delete'),
+
+    re_path('(?P<pk>\d+)/',SchoolDetail.as_view(),name='detail'),
+
 ]
+
+
+
+
+
+
+
+
